@@ -8,7 +8,6 @@ const initialState = {
 
 const reducer = (state, action) => {
   const checkColor = (count) => {
-    console.log(count)
     let color
     if (count > 0) {
       color = `rgb(52, 211, 153)`
@@ -42,34 +41,6 @@ const reducer = (state, action) => {
 }
 
 export default function Counter() {
-  // const [count, setCount] = useState(0)
-  // const [currentColor, setCurrentColor] = useState(pinkRGB)
-
-  // useEffect(() => {
-  //   if (count === 0) {
-  //     setCurrentColor(pinkRGB)
-  //   }
-
-  //   if (count > 0) {
-  //     setCurrentColor(`rgb(52, 211, 153)`)
-  //   }
-
-  //   if (count < 0) {
-  //     setCurrentColor(`rgb(239, 68, 68)`)
-  //   }
-  // }, [count])
-
-  // const increment = () => {
-  //   setCount((prevState) => prevState + 1)
-  // }
-
-  // const decrement = () => {
-  //   setCount((prevState) => prevState - 1)
-  // }
-
-  // const reset = () => {
-  //   setCount(0)
-  // }
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const handleIncrement = () => {
