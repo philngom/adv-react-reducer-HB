@@ -7,32 +7,34 @@ const initialState = {
 }
 
 const reducer = (state, action) => {
-  const checkColor = (type, count) => {
+  const checkColor = (count) => {
+    console.log(count)
     let color
-    if (type === 'increment' && count + 1 > 0) {
+    if (count > 0) {
       color = `rgb(52, 211, 153)`
-    } else if (type === 'decrement' && count - 1 < 0) {
+    } else if (count < 0) {
       color = `rgb(239, 68, 68)`
-    } else {
+    } else if (count === 0) {
       color = `rgb(236, 72, 153)`
     }
+    return color
   }
 
   switch (action.type) {
     case 'increment':
       return {
         count: state.count + 1,
-        color: checkColor(action.type, state.count),
+        color: checkColor(state.count + 1),
       }
     case 'decrement':
       return {
         count: state.count - 1,
-        color: checkColor(action.type, state.count),
+        color: checkColor(state.count - 1),
       }
     case 'reset':
       return {
         count: 0,
-        color: checkColor(action.type, state.count),
+        color: checkColor(0),
       }
     default:
       throw new Error()
